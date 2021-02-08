@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+
+        <nav id="sidebar">
+            <script id="user-list-template" type="text/html">
+                <div class="sidebar-header"><h3>Room:   {{name}}</h3></div>
+                <div class="user-list">
+                    <h4>User List</h4>
+                    <ul class="users">
+                        {{#users}} 
+                            <li>{{username}}</li>
+                        {{/users}}
+                    </ul>
+                </div>
+            </script>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+    
+            <div id="message-box">
+    
+                <div id="message">
+    
+                <script id="message-template" type="text/html">
+                    <div>
+                        <p><b>{{username}}</b> - {{text}} - {{createdAt}}</p>
+                    </div>
+                </script>
+                
+            
+                <script id="location-template" type="text/html">
+                    <div>
+                        <p><a href="{{url}}" target="_blank">Location - {{createdAt}}</a></p>
+                    </div>
+                </script>
+    
+            </div>
+
+
+            <form id="message-form">
+                <input type="text" name="send-message" id="send-message-input" placeholder="Type a message here ...">
+                <button id="send-message-button">Send message</button>
+                <button id="send-location-button">Send location</button>
+            </form> 
+
+    
+        </div>
+    
+    </div>      
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js"></script>
+    <script src="./javascripts/chat.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>
